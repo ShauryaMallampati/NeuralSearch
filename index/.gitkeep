@@ -1,0 +1,2 @@
+# This file ensures the index directory exists in git
+# Index files (faiss.index, metadata.json) are gitignored
