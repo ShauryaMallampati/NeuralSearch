@@ -28,13 +28,25 @@ def ensure_dirs():
 
 def save_uploaded_file(uploaded_file) -> Path:
     """
-    save a streamlit uploaded file to the uploads folder
+    save an uploaded file-like object to the uploads folder
     returns the path where it ended up
     """
     ensure_dirs()
-    dest = UPLOADS_DIR / uploaded_file.name
+    dest = UPLOADS_DIR / Path(uploaded_file.name).name
     with open(dest, "wb") as f:
-        f.write(uploaded_file.getbuffer())
+        f.write(uploaded_file.read())
+    return dest
+
+
+def save_uploaded_path(file_path: str | Path) -> Path:
+    """
+    save an uploaded file from a temporary path to the uploads folder
+    returns the path where it ended up
+    """
+    ensure_dirs()
+    src = Path(file_path)
+    dest = UPLOADS_DIR / src.name
+    dest.write_bytes(src.read_bytes())
     return dest
 
 

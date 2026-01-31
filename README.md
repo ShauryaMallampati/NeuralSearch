@@ -6,7 +6,6 @@ A local semantic search engine for your PDFs. Search by meaning, not keywords.
 
 Upload PDFs, ask questions in plain English, get answers with citations. Like Google, but for your documents — and it actually understands what you're asking.
 
-**100% offline.** No OpenAI, no cloud APIs, no data leaves your machine.
 
 ## How It Works
 
@@ -35,10 +34,10 @@ pip install -r requirements.txt
 ## Run
 
 ```bash
-streamlit run app.py
+python app.py
 ```
 
-Then open http://localhost:8501 in your browser.
+Then open http://localhost:7860 in your browser.
 
 ## Usage
 
@@ -89,7 +88,7 @@ The embedding model (`all-MiniLM-L6-v2`, ~90MB) downloads on first run. This is 
 
 ## Tech Stack
 
-- **Streamlit** — UI framework
+- **Gradio** — UI framework
 - **sentence-transformers** — text embeddings (all-MiniLM-L6-v2)
 - **FAISS** — vector similarity search
 - **pypdf** — PDF text extraction
@@ -99,18 +98,13 @@ The embedding model (`all-MiniLM-L6-v2`, ~90MB) downloads on first run. This is 
 ```
 VectorVault-NeuralSearch/
 ├── app.py                    # Landing page
-├── pages/
-│   ├── 1_Upload_and_Index.py # PDF upload + indexing
-│   ├── 2_Semantic_Search.py  # Search interface
-│   └── 3_Knowledge_Base.py   # Document management
 ├── src/
 │   ├── pdf_ingest.py         # PDF text extraction
 │   ├── chunking.py           # Text chunking logic
 │   ├── embedder.py           # Embedding model wrapper
 │   ├── vector_index.py       # FAISS index management
 │   ├── search.py             # Search functionality
-│   ├── storage.py            # File I/O utilities
-│   └── ui_bits.py            # Reusable UI components
+│   └── storage.py            # File I/O utilities
 ├── data/uploads/             # Uploaded PDFs (gitignored)
 ├── index/                    # FAISS index + metadata (gitignored)
 ├── requirements.txt
@@ -119,4 +113,4 @@ VectorVault-NeuralSearch/
 
 ## License
 
-MIT — do whatever you want with it.
+Custom Attribution License — see `LICENSE`.

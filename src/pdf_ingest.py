@@ -37,15 +37,13 @@ def extract_text_by_page(pdf_path: Path) -> list[dict]:
         print(f"couldn't read {pdf_path.name}: {e}")
     
     return pages
-    
-    return pages
 
 
-def extract text from multiple PDFs
+def extract_from_multiple(pdf_paths: list[Path]) -> dict[str, list[dict]]:
+    """
+    extract text from multiple PDFs
     
-    returnsext from multiple PDFs.
-    
-    Returns a dict mapping filename -> list of pages
+    returns dict mapping filename -> list of pages
     """
     results = {}
     
